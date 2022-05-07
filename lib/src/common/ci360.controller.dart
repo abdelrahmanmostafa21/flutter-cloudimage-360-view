@@ -12,17 +12,15 @@ abstract class Ci360Controller {
   bool get ready;
   Future<void> get onReady;
 
-  Future<void> nextImage({Duration? duration, Curve? curve});
-  Future<void> previousImage({Duration? duration, Curve? curve});
-  void rotateToImage(int index);
+  Future<void> nextImage({Duration? duration, Curve? curve, Axis axis = Axis.horizontal});
+  Future<void> previousImage({Duration? duration, Curve? curve, Axis axis = Axis.horizontal});
+  void rotateToImage(int index, [Axis axis = Axis.horizontal]);
 
   void startAutoPlay();
   void stopAutoPlay();
 }
 
 class Ci360ControllerImpl implements Ci360Controller {
-
-
   @override
   Completer readyCompleter = Completer();
 
@@ -58,32 +56,41 @@ class Ci360ControllerImpl implements Ci360Controller {
   }
 
   @override
-  void rotateToImage(int index) {
-    final _index = index < (_state?.imagesLength ?? 0) && index > -1 ? index : 0;
+  void rotateToImage(int index, [Axis axis = Axis.horizontal]) {
+    final _length = _state?.imageModelForAxis?.imagesLength ?? 0;
+    final _index = index <= _length && index > 0 ? index : 1;
     _setModeController();
     _state
       ?..onResetTimer()
-      ..onRotateImage.call(_index)
+      ..onRotateImage.call(_index, axis)
       ..onResumeTimer();
   }
 
   @override
-  Future<void> nextImage({Duration? duration, Curve? curve}) async {
-    final _index = (_state?.currentIndex ?? -1) + 1;
+  Future<void> nextImage({
+    Duration? duration,
+    Curve? curve,
+    Axis axis = Axis.horizontal,
+  }) async {
+    final _index = (_state?.indexForAxis ?? -1) + 1;
     _setModeController();
     _state
       ?..onResetTimer()
-      ..onRotateImage.call(_index)
+      ..onRotateImage.call(_index, axis)
       ..onResumeTimer();
   }
 
   @override
-  Future<void> previousImage({Duration? duration, Curve? curve}) async {
-    final _index = (_state?.currentIndex ?? 1) - 1;
+  Future<void> previousImage({
+    Duration? duration,
+    Curve? curve,
+    Axis axis = Axis.horizontal,
+  }) async {
+    final _index = (_state?.indexForAxis ?? 2) - 1;
     _setModeController();
     _state
       ?..onResetTimer()
-      ..onRotateImage.call(_index)
+      ..onRotateImage.call(_index, axis)
       ..onResumeTimer();
   }
 }

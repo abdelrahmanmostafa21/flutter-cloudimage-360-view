@@ -8,7 +8,7 @@
 		<img
 			alt="cloudimage logo"
             width=200,
-			src="https://www.dropbox.com/s/zn7kjn8ii3kule4/cloud-logo-vector-28390779.png?dl=1">
+			src="./screenshots/cloud-360-logo.png?raw=true">
 	</a>
 </p>
 
@@ -21,10 +21,10 @@
 <p align="center">	
     <img
 		alt="Shoes"
-		src="https://www.dropbox.com/s/tvhc0xh8m0iudpx/e1cb6623db07854aeb1becd2c6c8088c849a705b.gif?dl=1">
+		src="./screenshots/shoes.gif">
 	<img
 		alt="AirBuds"
-		src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/demos/assets/a2.gif">
+		src="./screenshots/airbuds.gif">
 
         
 </p>
@@ -53,10 +53,12 @@ To build and run the example app:
 
 >Example
 
-<img
-    alt="ExampleImg"
+<video 
+    controls
+    alt="ExampleVideo"
+    type="video/mp4"
     height= 400
-    src="https://www.dropbox.com/s/xcypfwpjkp3zf0o/trimedExampleCi360.gif?dl=1">
+    src="./screenshots/example360.mp4">
 
 ## <a name="installation"></a>Installation
 

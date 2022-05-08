@@ -1,1 +1,1 @@
-export 'ci360.view.dart';
+export 'ci360_view.dart';

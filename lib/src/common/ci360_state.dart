@@ -48,10 +48,10 @@ class Ci360State {
   int rotationYCompleted = 0;
 
   /// Last X Position
-  double localXPosition = 0.0;
+  double localXPosition = 0;
 
   /// Last Y Position
-  double localYPosition = 0.0;
+  double localYPosition = 0;
 
   //Timer Used To Autoplay
   Timer? timer;
@@ -126,5 +126,5 @@ extension Ci360StateExtension on Ci360State {
 
   void onImageChanged() => options.onImageChanged?.call(indexForAxis, currentMode, currentAxis);
 
-  double position(int length) => math.pow(4, (6 - options.swipeSensitivity)) / length;
+  double position(int length) => math.pow(4, 6 - options.swipeSensitivity) / length;
 }

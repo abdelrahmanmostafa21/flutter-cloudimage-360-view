@@ -4,6 +4,7 @@ import 'package:cloudimage_360_view/src/common/index.dart';
 import 'package:cloudimage_360_view/src/constants/index.dart';
 import 'package:cloudimage_360_view/src/models/index.dart';
 import 'package:cloudimage_360_view/src/utils/index.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Ci360View extends StatefulWidget {
@@ -98,8 +99,9 @@ class _Ci360ViewState extends State<Ci360View> {
     if (!state.options.allowSwipeToRotate || state.yImageModel == null) {
       return;
     }
-    state.currentAxis = Axis.vertical;
-    state.currentXIndex = 1;
+    state
+      ..currentAxis = Axis.vertical
+      ..currentXIndex = 1;
     if (state.options.autoRotate) {
       clearTimer();
     }
@@ -114,8 +116,9 @@ class _Ci360ViewState extends State<Ci360View> {
     if (!state.options.allowSwipeToRotate || state.xImageModel == null) {
       return;
     }
-    state.currentAxis = Axis.horizontal;
-    state.currentYIndex = 1;
+    state
+      ..currentAxis = Axis.horizontal
+      ..currentYIndex = 1;
     if (state.options.autoRotate) {
       clearTimer();
     }
@@ -140,12 +143,16 @@ class _Ci360ViewState extends State<Ci360View> {
           }
 
           final provider = state.currentImageProvider;
-          assert(provider != null,
-              'image at index ${state.indexForAxis} for axis ${state.currentAxis} not found');
+          assert(
+            provider != null,
+            'image at index ${state.indexForAxis} for axis ${state.currentAxis} not found',
+          );
 
           return Image(
             loadingBuilder: (_, child, progress) {
-              if (progress == null) return child;
+              if (progress == null) {
+                return child;
+              }
               return widget.loadingIndicator ?? const Center(child: CircularProgressIndicator());
             },
             image: provider!,
@@ -170,8 +177,9 @@ class _Ci360ViewState extends State<Ci360View> {
     final pos = state.localXPosition + state.position(xLength);
 
     if (pos <= details.localPosition.dx) {
-      state.currentXIndex -= 1;
-      state.localXPosition = details.localPosition.dx;
+      state
+        ..currentXIndex -= 1
+        ..localXPosition = details.localPosition.dx;
     }
     // Check to ignore rebuild of widget is index is same
     if (originalindex != state.currentXIndex) {
@@ -194,14 +202,15 @@ class _Ci360ViewState extends State<Ci360View> {
 
     final pos = state.position(xLength);
 
-    double distancedifference = (details.localPosition.dx - state.localXPosition);
+    var distancedifference = details.localPosition.dx - state.localXPosition;
     if (distancedifference < 0) {
-      distancedifference = (-distancedifference);
+      distancedifference = -distancedifference;
     }
 
     if (distancedifference >= pos) {
-      state.currentXIndex += 1;
-      state.localXPosition = details.localPosition.dx;
+      state
+        ..currentXIndex += 1
+        ..localXPosition = details.localPosition.dx;
     }
     // Check to ignore rebuild of widget is index is same
     if (originalindex != state.currentXIndex) {
@@ -220,15 +229,16 @@ class _Ci360ViewState extends State<Ci360View> {
     if (yLength < 1) {
       return;
     }
-    double distancedifference = (details.localPosition.dy - state.localYPosition);
+    var distancedifference = details.localPosition.dy - state.localYPosition;
     final originalindex = state.currentYIndex;
     if (distancedifference < 0) {
-      distancedifference = (-distancedifference);
+      distancedifference = -distancedifference;
     }
     final pos = state.position(yLength);
     if (distancedifference >= pos) {
-      state.currentYIndex += 1;
-      state.localYPosition = details.localPosition.dy;
+      state
+        ..currentYIndex += 1
+        ..localYPosition = details.localPosition.dy;
     }
     // Check to ignore rebuild of widget is index is same
     if (originalindex != state.currentYIndex) {
@@ -251,8 +261,9 @@ class _Ci360ViewState extends State<Ci360View> {
 
     final pos = state.localYPosition + state.position(yLength);
     if (pos <= details.localPosition.dy) {
-      state.currentYIndex -= 1;
-      state.localYPosition = details.localPosition.dy;
+      state
+        ..currentYIndex -= 1
+        ..localYPosition = details.localPosition.dy;
     }
     // Check to ignore rebuild of widget is index is same
     if (originalindex != state.currentYIndex) {
@@ -276,8 +287,9 @@ class _Ci360ViewState extends State<Ci360View> {
     }
     if (state.rotaionDoneOnAxis(axis) && !state.rotaionDoneOnAxis(diffAxis)) {
       if (state.canAutoRotateOnAxis(diffAxis)) {
-        state.invalidateInfiniteRotate();
-        state.currentAxis = diffAxis;
+        state
+          ..invalidateInfiniteRotate()
+          ..currentAxis = diffAxis;
         resumeTimer();
       }
       return;
@@ -315,7 +327,7 @@ class _Ci360ViewState extends State<Ci360View> {
           break;
         case Axis.vertical:
           final length = state.yImageModel?.imagesLength ?? 0;
-          if (length <= 0) {
+          if (length <= 0 == true) {
             return;
           }
           if (state.options.rotationDirection == CIRotationDirection.clockwise) {
@@ -407,5 +419,10 @@ class _Ci360ViewState extends State<Ci360View> {
       );
 
   ///Change Mode Reason [CIImageChangedReason]
-  void changeMode(CIImageChangedReason _mode) => state.currentMode = _mode;
+  void changeMode(CIImageChangedReason _mode) {
+    if (kDebugMode) {
+      print('CIImageChangedReason chane to mode $_mode');
+    }
+    state.currentMode = _mode;
+  }
 }

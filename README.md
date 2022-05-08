@@ -8,7 +8,7 @@
 		<img
 			alt="cloudimage logo"
             width=200,
-			src="./screenshots/cloud-360-logo.png?raw=true">
+			src="https://www.dropbox.com/s/zn7kjn8ii3kule4/cloud-logo-vector-28390779.png?dl=1">
 	</a>
 </p>
 
@@ -21,10 +21,12 @@
 <p align="center">	
     <img
 		alt="Shoes"
-		src="./screenshots/shoes.gif">
+    height=200
+		src="https://www.dropbox.com/s/3m4j2ubd164mw1m/shoes.gif?dl=1">
 	<img
 		alt="AirBuds"
-		src="./screenshots/airbuds.gif">
+    height=200
+		src="https://www.dropbox.com/s/lq21xn61ec95yns/airbuds.gif?dl=1">
 
         
 </p>
@@ -53,16 +55,14 @@ To build and run the example app:
 
 >Example
 
-<video 
-    controls
-    alt="ExampleVideo"
-    type="video/mp4"
-    height= 400
-    src="./screenshots/example360.mp4">
+<img 
+    alt="Example Image"
+    height= 300
+    src="https://www.dropbox.com/s/jxer9xcesq8k524/example360.gif?dl=1">
 
 ## <a name="installation"></a>Installation
 
-Add `cloudimage_360_view: 1.0.1` to your `pubspec.yaml` dependencies. 
+Add `cloudimage_360_view: 1.0.3` to your `pubspec.yaml` dependencies. 
 >Import Package
 
 ```dart

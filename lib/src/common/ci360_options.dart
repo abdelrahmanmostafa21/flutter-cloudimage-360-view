@@ -2,7 +2,7 @@ import 'package:cloudimage_360_view/src/constants/index.dart';
 import 'package:flutter/material.dart';
 
 class Ci360Options {
-  Ci360Options({
+  const Ci360Options({
     this.autoRotate = false,
     this.allowSwipeToRotate = true,
     this.rotationCount = 1,

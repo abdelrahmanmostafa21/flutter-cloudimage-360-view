@@ -1,5 +1,5 @@
 [![Release](https://img.shields.io/github/v/release/abdelrahmanmostafa21/flutter-cloudimage-360-view)](https://github.com/abdelrahmanmostafa21/flutter-cloudimage-360-view/releases)
-[![pub package](https://img.shields.io/pub/v/cloudimage-360-view.svg)](https://pub.dartlang.org/packages/cloudimage-360-view)
+[![pub package](https://img.shields.io/pub/v/cloudimage_360_view.svg)](https://pub.dartlang.org/packages/cloudimage-360-view)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)](#contributing)
 [![License](https://img.shields.io/badge/license-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Cloudimage](https://img.shields.io/badge/Powered%20with%20%E2%99%A5%20-abdelrahman_mostafa-6986fa.svg)](https://www.github.com/abdelrahmanmostafa21)

@@ -6,7 +6,7 @@ class Ci360Options {
   Ci360Options({
     this.autoRotate = false,
     this.allowSwipeToRotate = true,
-    this.rotationCount = 0,
+    this.rotationCount = 1,
     this.swipeSensitivity = 3,
     this.frameChangeDuration = kShortDuration,
     this.rotationDirection = CIRotationDirection.clockwise,

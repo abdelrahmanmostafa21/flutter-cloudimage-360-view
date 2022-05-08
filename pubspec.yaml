@@ -2,6 +2,7 @@ name: cloudimage_360_view
 description: A simple, interactive resource that can be used to provide a virtual tour of your product.
 version: 1.0.0
 homepage: https://github.com/abdelrahmanmostafa21/flutter-cloudimage-360-view
+repository: https://github.com/abdelrahmanmostafa21/flutter-cloudimage-360-view
 
 environment:
   sdk: ">=2.16.2 <3.0.0"

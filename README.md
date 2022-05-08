@@ -52,13 +52,15 @@ To build and run the example app:
 - Please note that a Mac with XCode is required to build for iOS
 
 >Example
+
 <img
-    alt="ExampleVid"
+    alt="ExampleImg"
+    height= 400
     src="https://www.dropbox.com/s/xcypfwpjkp3zf0o/trimedExampleCi360.gif?dl=1">
 
 ## <a name="installation"></a>Installation
 
-Add `cloudimage_360_view: ^1.0.0` to your `pubspec.yaml` dependencies. 
+Add `cloudimage_360_view: 1.0.1` to your `pubspec.yaml` dependencies. 
 >Import Package
 
 ```dart
